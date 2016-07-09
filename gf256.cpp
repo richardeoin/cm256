@@ -28,6 +28,7 @@
 
 #include "gf256.h"
 
+#if defined(USE_SIMD) || defined(USE_NEON)
 
 // Context object for GF(256) math
 gf256_ctx GF256Ctx;
@@ -788,3 +789,5 @@ extern "C" void gf256_memswap(void * GF256_RESTRICT vx, void * GF256_RESTRICT vy
         break;
     }
 }
+
+#endif

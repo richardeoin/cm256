@@ -99,6 +99,20 @@
     // Compiler-specific alignment keyword
     #define GF256_ALIGNED __attribute__((align(16)))
 
+#elif defined(NO_SIMD)
+
+    // Compiler-specific 128-bit SIMD register keyword
+    #define GF256_M128 __uint128_t
+
+    // Compiler-specific C++11 restrict keyword
+    #define GF256_RESTRICT __restrict__
+
+    // Compiler-specific force inline keyword
+    #define GF256_FORCE_INLINE __attribute__((always_inline)) inline
+
+    // Compiler-specific alignment keyword
+    #define GF256_ALIGNED __attribute__((align(16)))
+
 #endif
 
 #ifndef nullptr

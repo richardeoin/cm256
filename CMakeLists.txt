@@ -56,13 +56,16 @@ elseif(USE_SIMD MATCHES NEON)
         add_definitions(-DUSE_NEON)
     endif()
 else()
-    message(STATUS "Unsupported architecture")
-    return()
+    set( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}" )
+    set( CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}" )
+    message(STATUS "g++ using gf256_nosimd")
+    add_definitions(-DNO_SIMD)
 endif()
 
 set(cm256_SOURCES
   cm256.cpp
   gf256.cpp
+  gf256_nosimd.cpp
 )
 
 set(cm256_HEADERS
