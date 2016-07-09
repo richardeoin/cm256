@@ -102,7 +102,8 @@
 #elif defined(NO_SIMD)
 
     // Compiler-specific 128-bit SIMD register keyword
-    #define GF256_M128 __uint128_t
+    // SIMD registers are unused, just make them a small common type
+    #define GF256_M128 char
 
     // Compiler-specific C++11 restrict keyword
     #define GF256_RESTRICT __restrict__
