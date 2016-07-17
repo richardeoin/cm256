@@ -82,7 +82,7 @@ add_executable(cm256_test
   unit_test/maingcc.cpp
 )
 
-target_include_directories(cm256_test PUBLIC
+include_directories(cm256_test PUBLIC
     ${PROJECT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
 )
